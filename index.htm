@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: rgb(255, 255, 155);
+        }
+        .toggle-container{
+            background-color: black;
+            border: 2px solid black;
+            width: 110px;
+            height: 55px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            border-radius: 12px;
+            padding: 5px;
+        }
+        span{
+            background-color: white;
+            width: 45%;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+        .middle{
+            position: absolute;
+            height: 100%;
+            width: 46%;
+            border-radius: 12px;
+            left: 0;
+            top: 0;
+            right: inherit;
+            transition: left 1.5s;
+            background-color: black;
+            z-index: 2;
+        }
+        .darkmode .toggle-container{
+            border: white 2px solid;
+            transition: 1.2s;
+        }
+        .darkmode .container{
+            background-color: black;
+            transition: 1.2s;
+        }
+        .darkmode .middle{
+            left: 50%;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle-container">
+            <span class="first" style="color: yellow;">
+                <ion-icon name="sunny"></ion-icon>
+            </span>
+            <span class="middle">
+                
+            </span>
+            <span class="second">
+                <ion-icon name="moon"></ion-icon>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        const second = document.getElementsByClassName("second")
+        second[0].addEventListener("click", () => {
+            
+                document.body.classList.add("darkmode")
+            
+        })
+
+        const first = document.getElementsByClassName("first")
+        first[0].addEventListener("click", () => {
+            
+                document.body.classList.remove("darkmode")
+        })
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>    
+</body>
+</html>
